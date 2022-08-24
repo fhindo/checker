@@ -59,3 +59,7 @@ background-color: #b32121;
     background-color: rgb(255, 255, 255);
 
 }
+
+.checker.active {
+    border: 3px solid rgb(251, 255, 0);
+}

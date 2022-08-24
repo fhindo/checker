@@ -13,6 +13,8 @@
     List<CheckerClass> blackCheckers = new List<CheckerClass>();
     List<CheckerClass> whiteCheckers = new List<CheckerClass>();
 
+    CheckerClass? activeChecker = null;
+
     protected override void OnInitialized()
     {
         @* black Checkers *@
@@ -53,10 +55,12 @@
 
     @for (int i = 0; i < newBaord.Row; i++)
     {
+        int localI = i;
         <div class="Row">
 
             @for (int j = 0; j < newBaord.Column; j++)
             {
+                int localJ =j;
                 var checker = blackCheckers.FirstOrDefault(n => n.Column == j && n.Row == i);
                 if (checker == null)
                 {
@@ -66,10 +70,15 @@
                 <div class="Cell">
                     @if (checker != null)
                     {
-                    <div class="checker @checker.Color"></div>
+                    <div @onclick="() => {if (checker.CheckPosition()){Console.WriteLine(checker.Row);
+                                                                        Console.WriteLine(checker.Column);
+                                                                        //Console.WriteLine(localI);
+                                                                        //Console.WriteLine(localJ);
+                                                                        }}"
+                        class="checker @checker.Color @(checker.CheckPosition() ? "active" : "" )" ></div>
                     }
-
                 </div>
+
             }
         </div>
     }
