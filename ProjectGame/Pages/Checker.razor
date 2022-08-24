@@ -66,16 +66,19 @@
                 {
                     checker = whiteCheckers.FirstOrDefault(n => n.Column == j && n.Row == i);
                 }
+                
+                
+                bool canMoveTo = checker.rowsOptions.Contains(localI) && checker.coulmnsOptions.Contains(localJ);
+                
 
-                <div class="Cell">
+                <div class="Cell @(canMoveTo ? "active" : "")">
                     @if (checker != null)
                     {
-                    <div @onclick="() => {if (checker.CheckPosition()){Console.WriteLine(checker.Row);
-                                                                        Console.WriteLine(checker.Column);
-                                                                        //Console.WriteLine(localI);
-                                                                        //Console.WriteLine(localJ);
-                                                                        }}"
-                        class="checker @checker.Color @(checker.CheckPosition() ? "active" : "" )" ></div>
+                    <div @onclick="() => {
+                                        activeChecker = checker;
+                                        checker.CheckCheckerPosition();
+                                        }"
+                        class="checker @checker.Color @(checker == activeChecker ? "active" : "")"></div>
                     }
                 </div>
 
