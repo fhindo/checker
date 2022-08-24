@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.board{
+    height: 644px;
+    width: 644px;
+    border: 2px solid rgb(255, 0, 0);
+}
+
+.Cell{
+    height: 80px;
+    width: 80px;
+    border: 2px solid black;
+    display: inline-block;
+    float: right ;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.test{
+    color: aquamarine;
+}
+
+.Cell.active {
+    border: 3px solid rgb(251, 255, 0);
+}
+
+.Row:nth-child(2n) .Cell:nth-child(2n+1){
+background-color: #b32121;
+}
+
+.Row:nth-child(2n) .Cell:nth-child(2n){
+background-color: #d7b68b;
+}
+
+.Row:nth-child(2n+1) .Cell:nth-child(2n+1){
+background-color: #d7b68b;
+}
+
+.Row:nth-child(2n+1) .Cell:nth-child(2n){
+background-color: #b32121;
+}
+
+.checker{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1 px solid black;
+}
+
+.checker.black{
+    background-color: rgb(0, 0, 0);
+}
+.checker.white{
+    background-color: rgb(255, 255, 255);
+
+}
